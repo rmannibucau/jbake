@@ -1,0 +1,17 @@
+{{> header}}
+
+{{> menu}}
+
+	<div class="page-header">
+		<h1>Blog Archive</h1>
+	</div>
+
+	<ul>
+		{{#published_posts}}
+            {{#value.last_month}}
+                <li>{{value.date}} - <a href="{{value.uri}}">{{value.title}}</a></li>
+            {{/value.last_month}}
+		{{/published_posts}}
+    </ul>
+
+{{> footer}}

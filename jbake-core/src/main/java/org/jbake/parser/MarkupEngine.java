@@ -159,6 +159,9 @@ public abstract class MarkupEngine implements ParserEngine {
             context.setDefaultStatus();
         }
 
+        // ensure template engines with test capabilities only can read the status
+        context.getDocumentModel().put("is_" + context.getStatus(), "true");
+
         // default type has been set
         if (context.getConfig().getDefaultType() != null && context.getType().isEmpty()) {
             // file hasn't got type so use default

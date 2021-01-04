@@ -1,0 +1,28 @@
+{{> header}}
+
+{{> menu}}
+
+<div class="page-header">
+    <h1>Blog</h1>
+</div>
+
+{{#published_posts}}
+    {{#value.is_published}}
+    <h4><a href="{{value.uri}}">{{value.title}}</a></h4>
+    <p>{{value.date}}</p>
+    <p>{{value.body}}</p>
+    {{/value.is_published}}
+{{/published_posts}}
+
+<span>{{db.publishedPages.size()}}</span>
+<hr/>
+
+{{#config.index_paginate}}
+    <span> {{#previousFileName}}<a href="{{previousFileName}}">Previous</a> {{/previousFileName}} - {{#nextFileName}} > <a href="{{nextFileName}}">Next</a> {{/nextFileName}}</span>
+    <span> {{currentPageNumber}} of {{numberOfPages}} </span>
+    <hr/>
+{{/config.index_paginate}}
+
+<p>Older posts are available in the <a href="/{{config.archive_file}}">archive</a>.</p>
+
+{{> footer}}
